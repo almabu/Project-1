@@ -1,0 +1,16 @@
+<div class="container">
+  <form (ngSubmit)="searchImages()" class="search">
+    <div class="search-box">
+      <input type="text" [(ngModel)]="search" name="searchTerm" placeholder="Search">
+      <button type="submit" class="search-button">Search</button>
+    </div>
+  </form>
+  <div class="gallery">
+    <div *ngFor="let image of images">
+      <img [src]="getPhotoUrl(image)" alt="Flickr Photo">
+    </div>
+  </div>
+  <div id="scroller" (window:scroll)="onScroll()">
+    <div *ngIf="loading">Loading...</div>
+  </div>
+</div>
